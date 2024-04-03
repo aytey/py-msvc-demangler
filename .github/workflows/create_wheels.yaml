@@ -32,7 +32,7 @@ jobs:
           toolchain: stable
 
       - name: Build wheels
-        uses: pypa/cibuildwheel@v2.11.3
+        uses: pypa/cibuildwheel@v2.16.5
         env:
           CIBW_BUILD: cp${{matrix.python-version}}-*
           CIBW_ENVIRONMENT: 'PATH="$HOME/.cargo/bin:$PATH" CARGO_TERM_COLOR="always"'

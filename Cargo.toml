@@ -1,15 +1,15 @@
 [package]
-name = "py_cpp_demangle"
-version = "0.1.2"
-authors = ["Ben Frederickson <github@benfrederickson.com>"]
+name = "py_msvc_demangler"
+version = "0.0.1"
+authors = ["Andrew V. Teylu <andrew@tey.lu>"]
 edition = "2021"
 
 [lib]
-name = "cpp_demangle"
+name = "msvc_demangler"
 crate-type = ["cdylib"]
 
 [dependencies]
-cpp_demangle = "0.4.0"
+msvc-demangler = "0.9.0"
 
 [dependencies.pyo3]
 version = "0.17.3"

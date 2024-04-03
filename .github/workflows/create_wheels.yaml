@@ -32,7 +32,7 @@ jobs:
           toolchain: stable
 
       - name: Build wheels
-        uses: pypa/cibuildwheel@v2.11.3
+        uses: pypa/cibuildwheel@v2.16.5
         env:
           CIBW_BUILD: cp${{matrix.python-version}}-*
           CIBW_ENVIRONMENT: 'PATH="$HOME/.cargo/bin:$PATH" CARGO_TERM_COLOR="always"'
@@ -55,7 +55,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
       with:
-        path: py_cpp_demangle_source
+        path: py_msvc_demangler_source
     - uses: actions/download-artifact@v3
       with:
         name: wheels
@@ -65,10 +65,10 @@ jobs:
         python-version: ${{ matrix.python-version }}
     - name: Install wheel
       run: |
-        pip install --force-reinstall --no-deps --no-index --find-links . cpp-demangle
+        pip install --force-reinstall --no-deps --no-index --find-links . py-msvc-demangler
     - name: Run unittests
       run: |
-        python -m unittest discover py_cpp_demangle_source/tests
+        python -m unittest discover py_msvc_demangler_source/tests
 
   release:
     name: Release

@@ -65,7 +65,7 @@ jobs:
         python-version: ${{ matrix.python-version }}
     - name: Install wheel
       run: |
-        pip install --force-reinstall --no-deps --no-index --find-links . msvc-demangler
+        pip install --force-reinstall --no-deps --no-index --find-links . py-msvc-demangler
     - name: Run unittests
       run: |
         python -m unittest discover py_msvc_demangler_source/tests

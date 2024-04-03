@@ -1,13 +1,13 @@
-py-cpp-demangle: Demangles C++ linker symbols
+py-msvc-demangler: Demangles MSVC C++ linker symbols
 ============================================================
 
-.. image:: https://github.com/benfred/py-cpp-demangle/workflows/Build/badge.svg?branch=master
-    :target: https://github.com/benfred/py-cpp-demangle/actions?query=branch%3Amaster
+.. image:: https://github.com/aytey/py-msvc-demangler/workflows/Build/badge.svg?branch=master
+    :target: https://github.com/aytey/py-msvc-demangler/actions?query=branch%3Amaster
 
 A package for demangling C++ linker symbol strings
 
 This package provides python bindings for the rust crate
-`cpp_demangle <http://github.com/gimli-rs/cpp_demangle>`_ by building
+`msvc_demangler <https://github.com/mstange/msvc-demangler-rust>`_ by building
 a native Python extension using `PyO3 <https://github.com/pyO3/pyO3>`_.
 
 This is mainly an experiment in creating python extensions in Rust.
@@ -21,7 +21,7 @@ To install
 
 .. code-block:: python
 
-    pip install cpp-demangle
+    pip install msvc-demangler
 
 
 Building from source requires the nightly version of the rust compiler.
@@ -31,9 +31,9 @@ representation.
 
 .. code-block:: python
 
-    from cpp_demangle import demangle
+    from msvc_demangler import demangle
 
-    print(demangle('_ZN7mangled3fooEd'))
-    # prints 'mangled::foo(double)'
+    print(demangle('??_0klass@@QEAAHH@Z'))
+    # prints 'public: int __cdecl klass::operator/=(int)'
 
 Released under the MIT License
